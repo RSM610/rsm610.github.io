@@ -4,7 +4,12 @@ var audio=document.getElementById("audioPlayer"),loader=document.getElementById(
             "There are only 10 types",
             "of people in the world:",
             "Those who understand binary,",
-            "and those who don't"
+            "and those who don't",
+
+            ,
+
+
+            "I Like Peanuts"
         ];
         var iSpeed = 100; // time delay of print out
         var iIndex = 0; // start printing array at this position

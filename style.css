@@ -94,7 +94,7 @@ html {
 	--color-ddd-color: #ddd;
 	--color-gray: #e8dfdf;
 	--color-purple: #710ed4;
-	--color-light-purple: #30d88a;
+	--color-light-purple: #18d77e;
 	--color-light-blue: #21746d;
 	--color-navbarBorder-dark: #e2e2e207;
 	--color-shadowDark: rgba(0, 0, 0, 0.137);
@@ -431,7 +431,7 @@ noscript {
 }
 
 .hey {
-	color: #fff;
+	color: #07ef60;
 	position: absolute;
 	font-size: 2.5rem;
 	font-weight: 300;
@@ -491,37 +491,7 @@ noscript {
 	z-index: 2
 }
 
-.face {
-	height: 74%;
-	bottom: 0;
-	justify-content: center;
-	gap: 5px;
-	z-index: 1;
-	padding-left: 1px
-}
 
-.eye {
-	width: 8px;
-	height: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	background-color: #fff
-}
-
-.left-eye {
-	box-shadow: -1px -2px 2px rgba(0, 0, 0, .589) inset
-}
-
-.right-eye {
-	box-shadow: 1px 3px 2px rgba(0, 0, 0, .589) inset
-}
-
-.pupil {
-	width: 3.5px;
-	height: 3.5px;
-	background: #241010
-}
 
 .logo:hover {
 	transform: translateY(200px)
@@ -552,7 +522,7 @@ noscript {
 	background-color: var(--color-light-purple);
 	width: 600px;
 	height: 100vh;
-	filter: blur(300px);
+	filter: blur(250px);
 	opacity: .3;
 	animation: 1s linear infinite alternate-reverse breath
 }
