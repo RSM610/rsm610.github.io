@@ -94,7 +94,7 @@ html {
 	--color-ddd-color: #ddd;
 	--color-gray: #e8dfdf;
 	--color-purple: #710ed4;
-	--color-light-purple: #18d77e;
+	--color-light-purple: #0eee85;
 	--color-light-blue: #21746d;
 	--color-navbarBorder-dark: #e2e2e207;
 	--color-shadowDark: rgba(0, 0, 0, 0.137);
@@ -522,7 +522,7 @@ noscript {
 	background-color: var(--color-light-purple);
 	width: 600px;
 	height: 100vh;
-	filter: blur(250px);
+	filter: blur(280px);
 	opacity: .3;
 	animation: 1s linear infinite alternate-reverse breath
 }
