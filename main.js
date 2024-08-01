@@ -6,9 +6,6 @@ var audio=document.getElementById("audioPlayer"),loader=document.getElementById(
             "Those who understand binary,",
             "and those who don't",
 
-            ,
-
-
             "I Like Peanuts"
         ];
         var iSpeed = 100; // time delay of print out
