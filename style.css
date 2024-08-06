@@ -1153,7 +1153,7 @@ footer {
 	transition-duration: .3s;
 	border-radius: 30px;
 	border: 1px solid var(--tech-stack-box-border-color);
-	box-shadow: 10px 10px
+	box-shadow: 0 0 30px rgba(18, 148, 39, 0.888)
 }
 
 .info-div {
