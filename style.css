@@ -88,8 +88,8 @@ html {
 :root {
 	cursor: default;
 	--color-white: #fff;
-	--color-black: #000;
-	--color-dark-mode: #011724;
+	--color-black: #000000;
+	--color-dark-mode: #000000;
 	--color-light-mode: #80d5b5;
 	--color-ddd-color: #ddd;
 	--color-gray: #e8dfdf;
@@ -1135,7 +1135,8 @@ footer {
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	padding: 50px
+	padding: 50px;
+	
 }
 
 .cta:hover:before,
@@ -1151,7 +1152,8 @@ footer {
 	justify-content: space-between;
 	transition-duration: .3s;
 	border-radius: 30px;
-	border: 1px solid var(--tech-stack-box-border-color)
+	border: 1px solid var(--tech-stack-box-border-color);
+	box-shadow: 10px 10px
 }
 
 .info-div {
@@ -1163,6 +1165,7 @@ footer {
 	justify-content: center;
 	gap: 20px;
 	padding: 0 40px
+	
 }
 
 .faviconforProject {
