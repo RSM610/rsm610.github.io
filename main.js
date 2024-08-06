@@ -5,8 +5,6 @@ var audio=document.getElementById("audioPlayer"),loader=document.getElementById(
             "of people in the world:",
             "Those who understand binary,",
             "and those who don't",
-
-            
         ];
         var iSpeed = 100; // time delay of print out
         var iIndex = 0; // start printing array at this position

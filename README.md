@@ -1,4 +1,3 @@
 # RSM PORTFOLIO 
 
-## [Live Site]
-
+## rsm610.github.io
