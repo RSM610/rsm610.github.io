@@ -36,7 +36,7 @@ var audio=document.getElementById("audioPlayer"),loader=document.getElementById(
                         iIndex = 0;
                         iArrLength = aText[0].length;
                         typewriter();
-                    }, 10000);
+                    }, 5000);
                 }
             } else {
                 setTimeout(typewriter, iSpeed);
@@ -44,4 +44,239 @@ var audio=document.getElementById("audioPlayer"),loader=document.getElementById(
         }
 
         typewriter();
+// Tech Stack Carousel
+class TechStackCarousel {
+    constructor() {
+        this.wrapper = document.getElementById('techStackWrapper');
+        this.prevBtn = document.getElementById('techPrev');
+        this.nextBtn = document.getElementById('techNext');
+        this.indicators = document.getElementById('techIndicators');
+        this.items = this.wrapper.querySelectorAll('.tech-stack-box');
+        this.itemsPerView = this.getItemsPerView();
+        this.currentIndex = 0;
+        this.totalSlides = Math.ceil(this.items.length / this.itemsPerView);
 
+        this.init();
+    }
+
+    getItemsPerView() {
+        const screenWidth = window.innerWidth;
+        if (screenWidth < 576) return 2;
+        if (screenWidth < 768) return 3;
+        if (screenWidth < 992) return 4;
+        if (screenWidth < 1200) return 5;
+        return 6;
+    }
+
+    init() {
+        this.createIndicators();
+        this.bindEvents();
+        this.updateCarousel();
+        this.startAutoScroll();
+    }
+
+    createIndicators() {
+        this.indicators.innerHTML = '';
+        for (let i = 0; i < this.totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => this.goToSlide(i));
+            this.indicators.appendChild(indicator);
+        }
+    }
+
+    bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.prev());
+        this.nextBtn.addEventListener('click', () => this.next());
+
+        // Pause auto-scroll on hover
+        this.wrapper.addEventListener('mouseenter', () => this.stopAutoScroll());
+        this.wrapper.addEventListener('mouseleave', () => this.startAutoScroll());
+
+        // Handle resize
+        window.addEventListener('resize', () => {
+            this.itemsPerView = this.getItemsPerView();
+            this.totalSlides = Math.ceil(this.items.length / this.itemsPerView);
+            this.currentIndex = Math.min(this.currentIndex, this.totalSlides - 1);
+            this.createIndicators();
+            this.updateCarousel();
+        });
+    }
+
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateCarousel();
+    }
+
+    updateCarousel() {
+        const itemWidth = this.items[0].offsetWidth + 32; // 32px for gap
+        const translateX = -this.currentIndex * itemWidth * this.itemsPerView;
+
+        this.wrapper.style.transform = `translateX(${translateX}px)`;
+
+        // Update indicators
+        this.indicators.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentIndex);
+        });
+
+        // Update buttons
+        this.prevBtn.disabled = this.currentIndex === 0;
+        this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
+    }
+
+    startAutoScroll() {
+        this.autoScrollInterval = setInterval(() => {
+            this.next();
+        }, 3000);
+    }
+
+    stopAutoScroll() {
+        clearInterval(this.autoScrollInterval);
+    }
+}
+
+// Projects Carousel
+class ProjectsCarousel {
+    constructor() {
+        this.wrapper = document.getElementById('projectBoxesDiv');
+        this.prevBtn = document.getElementById('projectPrev');
+        this.nextBtn = document.getElementById('projectNext');
+        this.indicators = document.getElementById('projectIndicators');
+        this.items = this.wrapper.querySelectorAll('.project-box-wrapper');
+        this.currentIndex = 0;
+        this.totalSlides = this.items.length;
+
+        this.init();
+    }
+
+    init() {
+        if (this.totalSlides <= 1) {
+            this.hideNavigation();
+            return;
+        }
+
+        this.createIndicators();
+        this.bindEvents();
+        this.updateCarousel();
+        this.startAutoScroll(); // Start auto-scrolling
+    }
+
+    hideNavigation() {
+        this.prevBtn.style.display = 'none';
+        this.nextBtn.style.display = 'none';
+        this.indicators.style.display = 'none';
+    }
+
+    createIndicators() {
+        this.indicators.innerHTML = '';
+        for (let i = 0; i < this.totalSlides; i++) {
+            const indicator = document.createElement('div');
+            indicator.className = `indicator ${i === 0 ? 'active' : ''}`;
+            indicator.addEventListener('click', () => this.goToSlide(i));
+            this.indicators.appendChild(indicator);
+        }
+    }
+
+    bindEvents() {
+        this.prevBtn.addEventListener('click', () => this.prev());
+        this.nextBtn.addEventListener('click', () => this.next());
+
+        // Pause auto-scroll on hover
+        this.wrapper.addEventListener('mouseenter', () => this.stopAutoScroll());
+        this.wrapper.addEventListener('mouseleave', () => this.startAutoScroll());
+
+        // Touch/swipe support for mobile
+        let startY = 0;
+        let endY = 0;
+
+        this.wrapper.addEventListener('touchstart', (e) => {
+            startY = e.touches[0].clientY;
+        });
+
+        this.wrapper.addEventListener('touchend', (e) => {
+            endY = e.changedTouches[0].clientY;
+            const diff = startY - endY;
+
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    this.next();
+                } else {
+                    this.prev();
+                }
+            }
+        });
+    }
+
+    next() {
+        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    prev() {
+        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.updateCarousel();
+    }
+
+    goToSlide(index) {
+        this.currentIndex = index;
+        this.updateCarousel();
+    }
+
+    updateCarousel() {
+        const itemHeight = this.items[0].offsetHeight + 32; // 32px for gap
+        const translateY = -this.currentIndex * itemHeight;
+
+        this.wrapper.style.transform = `translateY(${translateY}px)`;
+
+        // Update indicators
+        this.indicators.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === this.currentIndex);
+        });
+
+        // Update buttons
+        this.prevBtn.disabled = this.currentIndex === 0;
+        this.nextBtn.disabled = this.currentIndex === this.totalSlides - 1;
+    }
+
+    startAutoScroll() {
+        this.autoScrollInterval = setInterval(() => {
+            this.next();
+        }, 3000); // Scroll every 3 seconds, matching TechStackCarousel
+    }
+
+    stopAutoScroll() {
+        clearInterval(this.autoScrollInterval);
+    }
+}
+
+// Initialize carousels when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    // Wait for images to load before initializing
+    setTimeout(() => {
+        const techCarousel = new TechStackCarousel();
+        const projectCarousel = new ProjectsCarousel();
+    }, 500);
+});
+
+// Keyboard navigation support
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft' && document.activeElement.closest('.tech-stack-carousel')) {
+        document.getElementById('techPrev').click();
+    } else if (e.key === 'ArrowRight' && document.activeElement.closest('.tech-stack-carousel')) {
+        document.getElementById('techNext').click();
+    } else if (e.key === 'ArrowUp' && document.activeElement.closest('.projects-carousel')) {
+        document.getElementById('projectPrev').click();
+    } else if (e.key === 'ArrowDown' && document.activeElement.closest('.projects-carousel')) {
+        document.getElementById('projectNext').click();
+    }
+});
