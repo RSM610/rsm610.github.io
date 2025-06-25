@@ -38,7 +38,6 @@ body {
 	font-family: Whitney, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif
 }
 
-
 .image-div,
 .logo,
 .navbar,
@@ -177,17 +176,28 @@ html {
 }
 
 .light-mode {
-	--color-dark-mode: #ece7e1;
+	--color-dark-mode: #a888f1; /* Changed to minty green */
 	--color-black: #fff;
 	--color-white: #000;
 	--color-ddd-color: rgb(31, 31, 31);
 	--color-navbarBorder-dark: #d1d6eb;
 	--static-heading-gradient-blue: #0f7878;
-	--static-heading-gradient-pink: #f09bb9;
+	--static-heading-gradient-pink: #124806;
 	--color-shadowDark: #e2ddd7;
-	--tech-stack-box-first-color: #e7e2db;
+	--tech-stack-box-first-color: #a8d2d2;
 	--tech-stack-box-second-color: #ece7e100;
 	--tech-stack-box-border-color: #dad5cf
+}
+
+.light-mode #info-para,
+.light-mode .ProjectDescription,
+.light-mode .about-info p {
+	color: #333; /* Adjusted font color for readability in light mode */
+}
+
+.light-mode .fa-copyright,
+.light-mode .footer-bottom article {
+	color: #333; /* Adjusted footer font color for light mode */
 }
 
 .setting-container {
@@ -451,8 +461,7 @@ noscript {
 	color: var(--color-white)
 }
 
-.blob
-{
+.blob {
 	border-radius: 50%
 }
 
@@ -479,8 +488,7 @@ noscript {
 	position: relative
 }
 
-.activeThistab:before,
-.face {
+.activeThistab:before{
 	content: "";
 	position: absolute
 }
@@ -489,8 +497,6 @@ noscript {
 	height: 100%;
 	z-index: 2
 }
-
-
 
 .logo:hover {
 	transform: translateY(200px)
@@ -522,9 +528,8 @@ noscript {
 	width: 600px;
 	height: 100vh;
 	filter: blur(280px);
-	opacity: .3;
+	opacity: .4;
 	animation: 1s linear infinite alternate-reverse breath;
-
 }
 
 @keyframes breath {
@@ -577,7 +582,6 @@ noscript {
 }
 
 @-webkit-keyframes vibrate-1 {
-
 	0%,
 	100% {
 		-webkit-transform: translate(0);
@@ -606,7 +610,6 @@ noscript {
 }
 
 @keyframes vibrate-1 {
-
 	0%,
 	100% {
 		-webkit-transform: translate(0);
@@ -645,7 +648,6 @@ noscript {
 }
 
 @keyframes gradient {
-
 	0%,
 	100% {
 		background-position: 0 50%
@@ -689,7 +691,6 @@ noscript {
 }
 
 @-webkit-keyframes jello-vertical {
-
 	0%,
 	100% {
 		-webkit-transform: scale3d(1, 1, 1);
@@ -723,7 +724,6 @@ noscript {
 }
 
 @keyframes jello-vertical {
-
 	0%,
 	100% {
 		-webkit-transform: scale3d(1, 1, 1);
@@ -1057,6 +1057,7 @@ noscript {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent
 }
+
 .project-box,
 .tech-stack-box {
 	background-image: linear-gradient(to bottom right, var(--tech-stack-box-first-color), var(--tech-stack-box-second-color))
@@ -1072,8 +1073,8 @@ noscript {
 .tech-stack-box {
 	align-items: center;
 	display: flex;
-	width: 400px; /* Increased from 300px */
-	height: 400px; /* Increased from 300px */
+	width: 400px;
+	height: 400px;
 	justify-content: center;
 	border-radius: 30px;
 	border: 1px solid var(--tech-stack-box-border-color);
@@ -1082,12 +1083,12 @@ noscript {
 
 .tech-stack-box img {
 	width: 85%;
-	transition-duration: .3s;
+	transition-duration: .3s
 }
 
 .tech-stack-box:hover img {
 	opacity: 100%;
-	transition-duration: .3s;
+	transition-duration: .3s
 }
 
 .tooltip {
@@ -1109,12 +1110,12 @@ noscript {
 	font-size: 1.6rem;
 	backdrop-filter: blur(15px);
 	font-weight: 500;
-	z-index: 10;
+	z-index: 10
 }
 
 .tech-stack-box:hover .tooltip {
 	opacity: 100%;
-	transition-duration: .3s;
+	transition-duration: .3s
 }
 
 .cta,
@@ -1125,8 +1126,35 @@ footer {
 	position: relative
 }
 
+.footer-avatar-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 450px; /* Ensure enough space for the image and its movement */
+	overflow: visible; /* Allow the image to move outside the container */
+	position: relative;
+	z-index: 3; /* Ensure it appears above other footer elements */
+}
+
+.footer-avatar-img,
+#footer-wala-avatar {
+	height: 100%; /* Adjust size to match logo’s visual style, if needed */
+	transition-duration: 1s; /* Match logo’s transition duration */
+	-webkit-user-select: none; /* Match logo’s user-select property */
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.footer-avatar-img:hover,
+#footer-wala-avatar:hover {
+	transform: translateY(500px); /* Match logo’s hover effect */
+	transition-duration: 1s;
+}
+
 .projects-section-container {
-	padding: 150px 0;
+	padding: 500px 0;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -1141,8 +1169,7 @@ footer {
 	justify-content: center;
 	align-items: center;
 	gap: 50px;
-	padding: 50px;
-
+	padding: 50px
 }
 
 .cta:hover:before,
@@ -1150,7 +1177,6 @@ footer {
 	width: 100%
 }
 
-/* Pulsating green glow animation */
 @keyframes pulse-green {
 	0%, 100% {
 		box-shadow: 0 0 30px rgba(18, 148, 39, 0.6);
@@ -1170,7 +1196,7 @@ footer {
 	border-radius: 30px;
 	border: 1px solid var(--tech-stack-box-border-color);
 	box-shadow: 0 0 30px rgba(18, 148, 39, 0.888);
-	animation: pulse-green 3s ease-in-out infinite; /* Added pulsating animation */
+	animation: pulse-green 3s ease-in-out infinite
 }
 
 .info-div {
@@ -1182,7 +1208,6 @@ footer {
 	justify-content: center;
 	gap: 20px;
 	padding: 0 40px
-
 }
 
 .faviconforProject {
@@ -1324,17 +1349,18 @@ footer {
 footer {
 	width: 100%;
 	height: 2%;
-	border-top: 1px solid var(--tech-stack-box-border-color)
+	border-top: 1px solid var(--tech-stack-box-border-color);
+	background-color: var(--color-dark-mode) /* Ensure footer uses the same background as body */
 }
 
 .footer-background {
 	width: 100%;
 	height: 100vh;
-	background-color: #0b0b0b;
+	background-color: var(--color-dark-mode); /* Updated to use variable for consistency */
 	display: flex;
 	align-items: flex-end;
 	justify-content: center;
-	z-index: 1;
+	z-index: 1
 }
 
 .footer-blob {
@@ -1344,7 +1370,7 @@ footer {
 	border-radius: 50%;
 	filter: blur(100px);
 	animation: 1s linear infinite alternate-reverse breath;
-	opacity: .7;
+	opacity: .8;
 }
 
 .footer-foreground {
@@ -1467,9 +1493,8 @@ footer {
 	transition-duration: .3s
 }
 
-
 .footer-bottom {
-	background-color: #000000;
+	background-color: var(--color-dark-mode); /* Updated to use variable for consistency */
 	width: 100%;
 	display: flex;
 	align-items: center;
@@ -1518,10 +1543,9 @@ footer {
 		transition-duration: 1s
 	}
 
-	/* Adjust tech stack boxes for medium screens */
 	.tech-stack-box {
 		width: 350px;
-		height: 350px;
+		height: 350px
 	}
 }
 
@@ -1532,7 +1556,6 @@ footer {
 }
 
 @media screen and (max-width:998px) {
-
 	#hamburger-button,
 	.hamburger {
 		background-color: transparent
@@ -1733,10 +1756,9 @@ footer {
 		padding: 0 0 0 80px
 	}
 
-	/* Adjust tech stack boxes for tablet screens */
 	.tech-stack-box {
 		width: 300px;
-		height: 300px;
+		height: 300px
 	}
 }
 
@@ -1800,14 +1822,13 @@ footer {
 		padding: 40px 0
 	}
 
-	/* Adjust tech stack boxes for mobile screens */
 	.tech-stack-box {
 		width: 250px;
-		height: 250px;
+		height: 250px
 	}
 
 	.tooltip {
-		font-size: 1.4rem;
+		font-size: 1.4rem
 	}
 }
 
@@ -1878,7 +1899,7 @@ footer {
 	}
 
 	.tooltip {
-		font-size: 1.2rem;
+		font-size: 1.2rem
 	}
 }
 
@@ -1960,12 +1981,11 @@ footer {
 	}
 }
 
-/* Tech Stack Carousel Styles */
 .tech-stack-carousel {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	margin: 2rem 0;
+	margin: 2rem 0
 }
 
 .tech-stack-wrapper {
@@ -1975,7 +1995,7 @@ footer {
 	list-style: none;
 	padding: 0;
 	margin: 0;
-	width: max-content;
+	width: max-content
 }
 
 .tech-stack-carousel .tech-stack-box {
@@ -1990,25 +2010,25 @@ footer {
 	border-radius: 15px;
 	backdrop-filter: blur(10px);
 	transition: all 0.3s ease;
-	border: 1px solid rgba(255, 255, 255, 0.2);
+	border: 1px solid rgba(255, 255, 255, 0.2)
 }
 
 .tech-stack-carousel .tech-stack-box:hover {
 	transform: translateY(-10px);
 	background: rgba(255, 255, 255, 0.2);
-	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3)
 }
 
 .tech-stack-logo {
-	width: 110px; /* Increased from 40px */
-	height: 110px; /* Increased from 40px */
+	width: 110px;
+	height: 110px;
 	object-fit: contain;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease
 }
 
 .tech-stack-carousel .tech-stack-box:hover .tech-stack-logo {
 	opacity: 0;
-	transition: opacity 0.3s ease;
+	transition: opacity 0.3s ease
 }
 
 .tech-stack-carousel .tooltip {
@@ -2028,11 +2048,11 @@ footer {
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
-	z-index: 10;
+	z-index: 10
 }
 
 .tech-stack-carousel .tech-stack-box:hover {
-	opacity: 1;
+	opacity: 1
 }
 
 .carousel-nav {
@@ -2040,7 +2060,7 @@ footer {
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-	margin-top: 2rem;
+	margin-top: 2rem
 }
 
 .carousel-btn {
@@ -2055,24 +2075,24 @@ footer {
 	cursor: pointer;
 	transition: all 0.3s ease;
 	color: white;
-	font-size: 18px;
+	font-size: 18px
 }
 
 .carousel-btn:hover {
 	background: rgba(255, 255, 255, 0.2);
-	transform: scale(1.1);
+	transform: scale(1.1)
 }
 
 .carousel-btn:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
-	transform: none;
+	transform: none
 }
 
 .carousel-indicators {
 	display: flex;
 	justify-content: center;
-	gap: 0.5rem;
+	gap: 0.5rem
 }
 
 .indicator {
@@ -2081,21 +2101,20 @@ footer {
 	border-radius: 50%;
 	background: rgba(255, 255, 255, 0.3);
 	cursor: pointer;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease
 }
 
 .indicator.active {
 	background: rgba(255, 255, 255, 0.8);
-	transform: scale(1.2);
+	transform: scale(1.2)
 }
 
-/* Projects Carousel Styles */
 .projects-carousel {
 	position: relative;
 	width: 100%;
 	height: 600px;
 	overflow: hidden;
-	margin: 2rem 0;
+	margin: 2rem 0
 }
 
 .project-boxes-div {
@@ -2103,12 +2122,12 @@ footer {
 	flex-direction: column;
 	transition: transform 0.5s ease;
 	gap: 2rem;
-	height: max-content;
+	height: max-content
 }
 
 .project-box-wrapper {
 	flex: 0 0 auto;
-	width: 100%;
+	width: 100%
 }
 
 .project-nav {
@@ -2116,78 +2135,76 @@ footer {
 	justify-content: center;
 	align-items: center;
 	gap: 1rem;
-	margin-top: 2rem;
+	margin-top: 2rem
 }
 
 .project-nav .carousel-btn {
-	font-size: 16px;
+	font-size: 16px
 }
 
 .project-indicators {
 	display: flex;
 	justify-content: center;
 	gap: 0.5rem;
-	margin-top: 1rem;
+	margin-top: 1rem
 }
 
 @keyframes scroll-down {
 	0% {
-		transform: translateY(0);
+		transform: translateY(0)
 	}
 	100% {
-		transform: translateY(-100%); /* Move by the full height of the content */
+		transform: translateY(-100%)
 	}
 }
 
 #projectBoxesDiv.auto-scroll {
-	animation: scroll-down 20s linear infinite;
+	animation: scroll-down 20s linear infinite
 }
 
 #projectBoxesDiv.auto-scroll:hover {
-	animation-play-state: paused;
+	animation-play-state: paused
 }
 
-/* Auto-scroll animation for tech stack */
 @keyframes scroll-left {
 	0% {
-		transform: translateX(0);
+		transform: translateX(0)
 	}
 	100% {
-		transform: translateX(-50%);
+		transform: translateX(-50%)
 	}
 }
 
 .tech-stack-wrapper.auto-scroll {
-	animation: scroll-left 20s linear infinite;
+	animation: scroll-left 20s linear infinite
 }
 
 .tech-stack-wrapper.auto-scroll:hover {
-	animation-play-state: paused;
+	animation-play-state: paused
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
 	.tech-stack-carousel .tech-stack-box {
 		width: 150px;
-		height: 150px;
+		height: 150px
 	}
 
 	.tech-stack-logo {
 		width: 90px;
-		height: 90px;
+		height: 90px
 	}
 
 	.projects-carousel {
-		height: 500px;
+		height: 500px
 	}
 
 	.carousel-btn {
 		width: 40px;
 		height: 40px;
-		font-size: 14px;
+		font-size: 14px
 	}
 
 	.tech-stack-carousel .tooltip {
-		font-size: 12px;
+		font-size: 12px
 	}
 }
