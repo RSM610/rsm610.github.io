@@ -523,6 +523,8 @@ noscript {
 	height: 100vh;
 	filter: blur(280px);
 	opacity: .3;
+	animation: 1s linear infinite alternate-reverse breath;
+
 }
 
 @keyframes breath {
