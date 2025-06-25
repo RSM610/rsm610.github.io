@@ -466,7 +466,7 @@ noscript {
 }
 
 .popup {
-	animation: 3s linear pop-up
+	animation: 3s linear pop-up infinite;
 }
 
 @keyframes pop-up {
